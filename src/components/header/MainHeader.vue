@@ -23,10 +23,10 @@
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">{{info.notice.mail}}</span>
+              <span class="label label-success">{{info.notice.mail.size}}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have {{info.notice.mail}} messages</li>
+              <li class="header">收到 {{info.notice.mail.size}} 条消息</li>
               <li>
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
@@ -49,7 +49,7 @@
                 </ul>
                 <!-- /.menu -->
               </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
+              <li class="footer"><a href="#">查看全部</a></li>
             </ul>
           </li>
           <!-- /.messages-menu -->
@@ -59,10 +59,10 @@
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning">{{info.notice.notice.size}}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">收到 {{info.notice.notice.size}} 条通知</li>
               <li>
                 <!-- Inner Menu: contains the notifications -->
                 <ul class="menu">
@@ -74,7 +74,7 @@
                   <!-- end notification -->
                 </ul>
               </li>
-              <li class="footer"><a href="#">View all</a></li>
+              <li class="footer"><a href="#">查看全部</a></li>
             </ul>
           </li>
           <!-- Tasks Menu -->
@@ -82,10 +82,10 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+              <span class="label label-danger">{{info.notice.task.size}}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
+              <li class="header">你有 {{info.notice.task.size}} 个任务</li>
               <li>
                 <!-- Inner menu: contains the tasks -->
                 <ul class="menu">
@@ -109,7 +109,7 @@
                 </ul>
               </li>
               <li class="footer">
-                <a href="#">View all tasks</a>
+                <a href="#">查看全部</a>
               </li>
             </ul>
           </li>
@@ -120,7 +120,7 @@
               <!-- The user image in the navbar-->
               <img src="../../assets/AdminLTE/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{info.user.username}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -128,32 +128,14 @@
                 <img src="../../assets/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{info.user.username}}
+                  <small>{{info.user.logindate}}</small>
                 </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                <div>
+                  <button class="btn btn-danger btn-block">朕退下了</button>
                 </div>
               </li>
             </ul>
@@ -176,7 +158,19 @@ export default {
         title: 'Hermes',
         simpletitle: 'H',
         notice: {
-          mail: 20
+          mail: {
+            size: 20
+          },
+          notice: {
+            size: 30
+          },
+          task: {
+            size: 40
+          }
+        },
+        user: {
+          username: 'fengche@126.com',
+          logindate: '2016-10-25 20:02:00'
         }
       }
     }
