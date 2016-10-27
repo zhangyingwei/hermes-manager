@@ -11,7 +11,7 @@
     <!-- Main content -->
     <section class="content">
       <!-- Your Page Content Here -->
-        <hermes-table v-bind:table-info="info.table" ></hermes-table>
+        <hermes-table></hermes-table>
     </section>
     <!-- /.content -->
   </div>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import HermesTable from '../selfcomps/HermesTable'
+import HermesTable from './tabledemo/HermesTable'
 
 export default {
   components: {
@@ -34,20 +34,33 @@ export default {
         },
         table: {
           name: '这是一个测试表格',
-          col: [
+          column: [
             {
-              name: '#',
-              width: '10px'
+              name: '编号',
+              value: 'id',
+              width: '60px'
             },
             {
-              name: 'task'
+              name: '任务',
+              value: 'task'
             },
             {
-              name: 'Progress'
+              name: '完成程度',
+              value: 'progress',
+              class: ['progress', 'progress-xs']
             },
             {
-              name: 'Label',
+              name: '标签',
+              value: 'label',
               width: '80px'
+            }
+          ],
+          data: [
+            {
+              id: 0,
+              task: 'aaa',
+              progress: 'bbbbb',
+              label: '55%'
             }
           ]
         }
