@@ -16,7 +16,7 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
-        <li class="#" v-bind:class="{'active':c.active,'header':c.header}" v-for="c in info.menu.child"><a v-if="!c.header" href="{{c.link}}"><i class="fa fa-link"></i><span>{{c.name}}</span></a><span v-if="c.header">{{c.name}}</span></li>
+        <li class="#" v-bind:class="{'active':c.active,'header':c.header}" v-for="c in info.menu.child"><a v-if="!c.header" href="{{c.link}}" v-on:click="menuClick(c)"><i class="fa fa-link"></i><span>{{c.name}}</span></a><span v-if="c.header">{{c.name}}</span></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -36,40 +36,75 @@ export default {
         menu: {
           child: [
             {
-              name: '菜单组',
+              name: '订阅',
               link: '#',
               active: false,
               header: true
             },
             {
-              name: '菜单1',
-              link: '#',
-              active: true
-            },
-            {
-              name: '菜单2',
+              name: '源管理',
               link: '#',
               active: false
             },
             {
-              name: '菜单组',
+              name: '源审核',
+              link: '#',
+              active: false
+            },
+            {
+              name: '文章',
               link: '#',
               active: false,
               header: true
             },
             {
-              name: '菜单3',
+              name: '文章审核',
               link: '#',
               active: false
             },
             {
-              name: '菜单4',
+              name: '历史文章',
+              link: '#',
+              active: false
+            },
+            {
+              name: '订阅',
+              link: '#',
+              active: false,
+              header: true
+            },
+            {
+              name: '订阅管理',
+              link: '#',
+              active: false
+            },
+            {
+              name: '管理',
+              link: '#',
+              active: false,
+              header: true
+            },
+            {
+              name: '分类管理',
+              link: '#',
+              active: false
+            },
+            {
+              name: '标签管理',
               link: '#',
               active: false
             }
           ]
         }
       }
+    }
+  },
+  methods: {
+    menuClick: function (c) {
+      this.info.menu.child.forEach(function (e) {
+        e.active = false
+      })
+      c.active = true
     }
   }
 }
