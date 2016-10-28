@@ -3,15 +3,17 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{info.page.name}}
-        <small>{{info.page.desc}}</small>
+        {{location.name}}
+        <small>{{location.desc}}</small>
       </h1>
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" id="content">
       <!-- Your Page Content Here -->
-        <hermes-table></hermes-table>
+      <router-link to="/foo" tag="li">Go to Foo</router-link>
+      <router-view></router-view>
+        <!-- <hermes-table></hermes-table> -->
     </section>
     <!-- /.content -->
   </div>
@@ -19,19 +21,15 @@
 </template>
 
 <script>
-import HermesTable from './tabledemo/HermesTable'
-
+// import HermesTable from './tabledemo/HermesTable'
 export default {
-  components: {
-    HermesTable
-  },
+  // components: {
+  //   HermesTable
+  // },
+  props: ['location'],
   data () {
     return {
       info: {
-        page: {
-          name: '首页',
-          desc: '这里是首页'
-        },
         table: {
           name: '这是一个测试表格',
           column: [

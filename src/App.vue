@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="wrapper">
     <main-header></main-header>
-    <main-sidebar></main-sidebar>
-    <content-wrapper></content-wrapper>
+    <main-sidebar :location.sync="info.location"></main-sidebar>
+    <content-wrapper :location="info.location"></content-wrapper>
     <main-footer></main-footer>
     <control-sidebar></control-sidebar>
   </div>
@@ -14,6 +14,8 @@ import MainSidebar from './components/sidebar/MainSidebar'
 import ContentWrapper from './components/content/ContentWrapper'
 import MainFooter from './components/footer/MainFooter'
 import ControlSidebar from './components/control/ControlSidebar'
+import router from './routers'
+router.start(ContentWrapper, '#content')
 
 export default {
   components: {
@@ -22,6 +24,16 @@ export default {
     ContentWrapper,
     MainFooter,
     ControlSidebar
+  },
+  data () {
+    return {
+      info: {
+        location: {
+          name: '',
+          desc: ''
+        }
+      }
+    }
   }
 }
 </script>

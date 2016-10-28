@@ -26,6 +26,7 @@
 
 <script>
 export default {
+  props: ['location'],
   data () {
     return {
       info: {
@@ -43,6 +44,7 @@ export default {
             },
             {
               name: '源管理',
+              desc: 'RSS订阅源管理',
               link: '#',
               active: false
             },
@@ -105,6 +107,8 @@ export default {
         e.active = false
       })
       c.active = true
+      this.location.name = c.name
+      this.location.desc = c.desc
     }
   }
 }
