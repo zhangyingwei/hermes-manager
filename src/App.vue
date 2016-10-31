@@ -14,8 +14,6 @@ import MainSidebar from './components/sidebar/MainSidebar'
 import ContentWrapper from './components/content/ContentWrapper'
 import MainFooter from './components/footer/MainFooter'
 import ControlSidebar from './components/control/ControlSidebar'
-import router from './routers'
-router.start(ContentWrapper, '#content')
 
 export default {
   components: {

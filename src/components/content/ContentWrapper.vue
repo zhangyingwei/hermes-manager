@@ -7,11 +7,10 @@
         <small>{{location.desc}}</small>
       </h1>
     </section>
-
     <!-- Main content -->
     <section class="content" id="content">
       <!-- Your Page Content Here -->
-      <router-link to="/foo" tag="li">Go to Foo</router-link>
+      <router-link to="/foo">Go to Foo</router-link>
       <router-view></router-view>
         <!-- <hermes-table></hermes-table> -->
     </section>
